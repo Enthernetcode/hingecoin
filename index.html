@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Favicons -->
+  <link href="images/hinge.webp" rel="icon">
+  <link href="images/hinge.webp" rel="apple-touch-icon">
+<title>Hingecoin - secure your assets</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Font Google -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #daa520; /* Background color for the loader */
+  z-index: 9999;
+}
+
+.loader-text {
+  font-family: 'Poppins', sans-serif; /* Assuming Poppins is your font */
+  font-size: 24px;
+  color: #00EAFF; /* Adjust the color as needed */
+  margin-right: 10px;
+}
+
+.loader {
+  border: 4px solid #00EAFF; /* Adjust the color as needed */
+  border-radius: 50%;
+  border-top: 4px solid transparent;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+body.loaded .loader-container {
+  display: none;
+}
+
+</style>
+</head>
+
+<body class="theme-bg">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg theme-bg">
+  <div class="container"> <a class="navbar-brand navbar-logo d-flex align-items-center" href="#"> <img src="images/hinge.webp" alt="logo" class="logo-1" style="width:40px; height:40px;">
+ <div class="fw-bold hinge theme-txt">HINGECOIN</div>
+  </a>
+  
+  <i class="fa fa-toggle-on theme-txt" style=" font-size: 24px;" id="theme-toggle"></i>
+ 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="fas fa-bars theme-txt"></span> </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"> <a class="nav-link theme-txt" href="#home" >Home</a> </li>
+        <li class="nav-item"> <a class="nav-link theme-txt" href="#about">What's Hingecoin ?</a> </li>
+        <li class="nav-item"> <a class="nav-link theme-txt" href="#Features">Features</a> </li>
+        <li class="nav-item"> <a class="nav-link theme-txt" href="#howto">How to..</a> </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- End Navbar --> 
+<!-------Banner Start------->
+<section class="banner" id="home">
+  <div class="banner-overlay">
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-8 col-sm-12">
+          <div class="banner-text">
+            <h2 class="theme-txt-lite">HINGECOIN</h2>
+            <h6 class="theme-txt-lite">Secure your total assets .</h6>
+<a href="#" target="_blank" rel="dofollow" class="weblink theme-txt-lite">Connect wallet.</a>
+      
+          </div>
+        </div>
+        <div class="comments col-md-4 col-sm-12">
+           <div class="img-fluid wow fadeInUp glass p-2 py-3  text-center my-2 topb theme-txt-lite">Secured over 700+ assets around the world!</div>
+        <div class="img-fluid wow fadeInUp glass p-2 py-3 text-center my-2 bothb theme-txt-lite">Total leverage range is now 10230 scores</div>
+        <div class="img-fluid wow fadeInUp glass p-2 py-3 text-center my-2 bottomb theme-txt-lite">x34 snet bonus!</div>
+      </div>
+      </div>
+    </div>
+  </div>
+  
+
+<!-------Banner End-------> 
+
+<!-------About End------->
+
+<section class="about section-padding prelative theme-bg" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="sectioner-header text-center">
+          <h3>What's Hingecoin ?</h3>
+          <span class="line"></span>
+          <p class="theme-txt">Sed quis nisi nisi. Proin consectetur porttitor dui sit amet viverra. Fusce sit amet lorem faucibus, vestibulum ante in, pharetra ante.</p>
+        </div>
+        <div class="section-content text-center">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="icon-box wow fadeInUp" data-wow-delay="0.2s"> <i class="fa fa-life-ring theme-txt-lite" aria-hidden="true"></i>
+                <h5>Support</h5>
+                <p>Phasellus lobortis justo a magna facilisis, in commodo tellus rutrum. Sed vitae condimentum nulla.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="icon-box wow fadeInUp" data-wow-delay="0.4s"> <i class="fa fa-mobile theme-txt-lite" aria-hidden="true"></i>
+                <h5>Cross Platform</h5>
+                <p>Phasellus lobortis justo a magna facilisis, in commodo tellus rutrum. Sed vitae condimentum nulla.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="icon-box wow fadeInUp" data-wow-delay="0.6s"> <i class="fa fa-bolt theme-txt-lite" aria-hidden="true"></i>
+                <h5>Fast</h5>
+                <p>Phasellus lobortis justo a magna facilisis, in commodo tellus rutrum. Sed vitae condimentum nulla.</p>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="about-btn">Learn More</a> </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-------About End-------> 
+
+<!-------Video Start------->
+<section class="video-section prelative text-center theme-txt-lite">
+  <div class="section-padding video-overlay">
+    <div class="container">
+      <h3>Getting Started With Hingecoin</h3>
+      <i class="fa fa-play" id="video-icon" aria-hidden="true"></i>
+      <div class="video-popup">
+        <div class="video-src">
+          <div class="iframe-src">
+            <iframe src="https://www.youtube.com/embed/Ku52zNnft8k?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-------Video End-------> 
+
+<!-------Features Start------->
+<section class="feature section-padding" id="Features">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="sectioner-header text-center">
+          <h3 class="theme-txt-lite">Features</h3>
+          <span class="line-feature"></span>
+          <p class="theme-txt-lite">Sed quis nisi nisi. Proin consectetur porttitor dui sit amet viverra. Fusce sit amet lorem faucibus, vestibulum ante in, pharetra ante.</p>
+        </div>
+        <div class="section-content text-center">
+          <div class="row">
+            <div class="col-md-4 col-sm-12">
+              <div class="media single-feature wow fadeInUp" data-wow-delay="0.2s">
+                <div class="media-body text-right media-right-margin">
+                  <h5 class="theme-txt-lite">Secure</h5>
+                  <p class="theme-txt-lite">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididugnt ut labore</p>
+                </div>
+                <div class="media-right icon-border"> <span class="fa fa-bolt" aria-hidden="true"></span> </div>
+              </div>
+              <div class="media single-feature wow fadeInUp" data-wow-delay="0.4s">
+                <div class="media-body text-right media-right-margin">
+                  <h5 class="theme-txt-lite">Low cost Consuming</h5>
+                  <p class="theme-txt-lite">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididugnt ut labore</p>
+                </div>
+                <div class="media-right icon-border"> <span class="fa fa-battery-full" aria-hidden="true"></span> </div>
+              </div>
+              <div class="media single-feature wow fadeInUp" data-wow-delay="0.6s">
+                <div class="media-body text-right media-right-margin">
+                  <h5 class="theme-txt-lite">Compatibility</h5>
+                  <p class="theme-txt-lite">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididugnt ut labore</p>
+                </div>
+                <div class="media-right icon-border"> <span class="fa fa-wifi" aria-hidden="true"></span> </div>
+              </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block d-lg-block">
+              <div class="feature-mobile"> <img src="images/hinge.webp" class="img-fluid wow fadeInUp"/> </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <div class="media single-feature wow fadeInUp" data-wow-delay="0.2s">
+                <div class="media-left icon-border media-right-margin"> <span class="fa fa-check-double" aria-hidden="true"></span> </div>
+                <div class="media-body text-left">
+                  <h5 class="theme-txt-lite">Regular Updates</h5>
+                  <p class="theme-txt-lite">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididugnt ut labore</p>
+                </div>
+              </div>
+              <div class="media single-feature wow fadeInUp" data-wow-delay="0.4s">
+                <div class="media-left icon-border media-right-margin"> <span class="fa fa-dollar-sign" aria-hidden="true"></span> </div>
+                <div class="media-body text-left">
+                  <h5 class="theme-txt-lite">Save Money</h5>
+                  <p class="theme-txt-lite">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididugnt ut labore</p>
+                </div>
+              </div>
+              <div class="media single-feature wow fadeInUp" data-wow-delay="0.6s">
+                <div class="media-left icon-border media-right-margin"> <span class="fa fa-hdd" aria-hidden="true"></span> </div>
+                <div class="media-body text-left">
+                  <h5 class="theme-txt-lite">Unlimited Resources</h5>
+                  <p class="theme-txt-lite">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididugnt ut labore</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-------Features End-------> 
+
+<!-------FAQ Start------->
+<section class="faq section-padding prelative theme-bg" data-scroll-index='5'>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="sectioner-header text-center">
+          <h3>Frequently Asked Questions</h3>
+          <span class="line"></span>
+          <p class="theme-txt">Sed quis nisi nisi. Proin consectetur porttitor dui sit amet viverra. Fusce sit amet lorem faucibus, vestibulum ante in, pharetra ante.</p>
+        </div>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.2s">
+              <h4 class="theme-txt">Nam tellus felis, dignissim quis dui ?</h4>
+              <p>Suspendisse fermentum placerat enim, at pellentesque augue. Nullam elit est, ultricies et tellus ac, euismod placerat orci. Donec commodo.</p>
+            </div>
+            <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.2s">
+              <h4 class="theme-txt">Mauris scelerisque, dui non faucibus vulputate ?</h4>
+              <p>Sed tempus in neque ac rhoncus. Phasellus vehicula, erat tempor malesuada egestas, mauris tellus malesuada erat, at vestibulum nulla ex et lectus. Nullam elit est, ultricies et tellus ac, euismod placerat orci.</p>
+            </div>
+            <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.4s">
+              <h4 class="theme-txt">Nullam elit est, ultricies et tellus ac ?</h4>
+              <p>Ut vestibulum euismod aliquet. Quisque nec malesuada nibh. Vivamus euismod nunc eu leo faucibus, vel elementum justo posuere. In sed varius nisi. Curabitur id porta ipsum, et vestibulum dui.</p>
+            </div>
+            <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.4s">
+              <h4 class="theme-txt">Suspendisse fermentum placerat enim, at pellentesque augue elit est ?</h4>
+              <p>Vivamus euismod nunc eu leo faucibus, vel elementum justo posuere. In sed varius nisi.</p>
+            </div>
+            <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.6s">
+              <h4 class="theme-txt">Ut vestibulum euismod aliquet. Quisque nec malesuada nibh ?</h4>
+              <p>Suspendisse fermentum placerat enim, at pellentesque augue. Nullam elit est, ultricies et tellus ac, euismod placerat orci. Donec commodo dapibus congue.</p>
+            </div>
+            <div class="col-md-6 faq-content wow fadeInUp" data-wow-delay="0.6s">
+              <h4 class="theme-txt">Donec commodo dapibus congue ?</h4>
+              <p>Nullam elit est, ultricies et tellus ac, euismod placerat orci fermentum placerat enim, at pellentesque augue. Nullam elit est, ultricies et tellus ac, euismod placerat orci. Donec commodo dapibus congue.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-------FAQ End-------> 
+
+
+<!-------how to Start------->
+<section class="testimonial section-padding" id="howto">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="sectioner-header text-center white">
+          <h3 class="theme-txt-lite">How to..</h3>
+          <span class="line-feature"></span>
+          <p class="theme-txt-lite">Sed quis nisi nisi. Proin consectetur porttitor dui sit amet viverra. Fusce sit amet lorem faucibus, vestibulum ante in, pharetra ante.</p>
+        </div>
+    
+      <div class="section-content">
+        <div class="row">
+          <div class="offset-md-2 col-md-8 col-sm-12">
+            <div class="slider">
+              <div class="slider-item">
+                <div class="test-text"><span class="title"><span>Connect to wallet</span></span> Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratvo lutpat.</div>
+ <a href="#" class="about-btn w-100 text-center">View All</a> 
+              </div>
+              <div class="slider-item">
+                <div class="test-text"><span class="title"><span>Join community</span></span> Euismod tincidunt ut laoreet dolore magna aliquam eratvo lutpat. Ut wisi enim ad minim veniam, quis nostrud v</div>
+ <a href="#" class="about-btn w-100 text-center">View All</a> 
+              </div>
+              <div class="slider-item">
+                <div class="test-text"><span class="title"><span>Get premium</span></span> Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratvo lutpat. Ut wisi enim ad minim veniam, quis nostrud v</div>
+ <a href="#" class="about-btn w-100 text-center">View All</a> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-------how to End-------> 
+
+<div class="d-flex justify-content-center align-items-center w-100" style="margin-top:100px;">
+<img src="images/hg.gif" class="gif">
+<h1 class="theme-txt-lite">Hingecoin</h1>
+</div>
+
+<div class="d-flex align-items-center justify-content-center" style="margin-top:50px;">
+  <i class="fa-brands fa-x-twitter m-2 theme-txt-lite" style="font-size:30px;"></i>
+ <i class="fab fa-facebook m-2 theme-txt-lite " style="font-size:30px;"></i>
+ <i class="fab fa-instagram m-2 theme-txt-lite" style="font-size:30px;"></i>
+ <i class="fab fa-linkedin m-2 theme-txt-lite" style="font-size:30px;"></i>
+</div>
+
+<footer class="footer-copy">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="theme-txt-lite">2024 &copy; Hingecoin
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="loader-container">
+  <div class="loader-text">Hingecoin</div>
+  <div class="loader"></div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> 
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Show loader initially
+  document.querySelector('.loader-container').style.display = 'flex';
+
+  // Hide loader when page is fully loaded
+  window.addEventListener('load', function () {
+    document.body.classList.add('loaded');
+    document.querySelector('.loader-container').style.display = 'none';
+  });
+});
+
+  
+</script>
+
+<script src="js/wow.min.js"></script> 
+<script>
+function handleTheme(){
+    // Check the user's preference from local storage
+    const currentTheme = localStorage.getItem('theme');
+
+    // Apply the saved theme or default to light mode
+    if (currentTheme === 'dark') {
+      applyDarkMode();
+    }else{
+      applyLightMode();
+    }
+
+    // Toggle theme on button click
+    $('#theme-toggle').click(function () {
+      if ($(this).hasClass('fa-toggle-on')) {
+        applyDarkMode();
+      } else {
+        applyLightMode();
+      }
+    });
+
+    function applyDarkMode() {
+      // Add dark mode styles
+      $(".theme-bg").css("background-color","#121212");
+$(".theme-txt-lite").css("color","#000");
+$(".theme-txt").css("color","#fff");
+$(".banner a.weblink").css("border-bottom", "1px dotted #000");
+$(".nav-scroll").css("background-color","#121212");
+$(".video-section i").css("background-color","#000");
+      // Update button icon
+      $('#theme-toggle').removeClass('fa-toggle-on').addClass('fa-toggle-off');
+      // Save theme preference
+      localStorage.setItem('theme', 'dark');
+    }
+
+    function applyLightMode() {
+      // Remove dark mode styles
+    $(".theme-bg").css("background-color","#fff");
+$(".banner a.weblink").css("border-bottom", "1px dotted #fff");
+$(".theme-txt-lite").css("color","#fff");
+$(".theme-txt").css("color","#121212");
+$(".nav-scroll").css("background-color","#fff");
+$(".video-section i").css("background-color","#fff");
+      // Update button icon
+      $('#theme-toggle').removeClass('fa-toggle-off').addClass('fa-toggle-on');
+      // Save theme preference
+      localStorage.setItem('theme', 'light');
+    }
+    }
+	wow = new WOW();
+	wow.init();
+$(document).ready(function(e) {
+handleTheme();
+	$('#video-icon').on('click',function(e){
+	e.preventDefault();
+	$('.video-popup').css('display','flex');
+	$('.iframe-src').slideDown();
+	});
+	$('.video-popup').on('click',function(e){
+	var $target = e.target.nodeName;
+	var video_src = $(this).find('iframe').attr('src');
+	if($target != 'IFRAME'){
+	$('.video-popup').fadeOut();
+	$('.iframe-src').slideUp();
+	$('.video-popup iframe').attr('src'," ");
+	$('.video-popup iframe').attr('src',video_src);
+	}
+	});
+
+	$('.slider').bxSlider({
+	pager: false
+	});
+});
+</script>
+
+</body>
+</html>
