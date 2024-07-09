@@ -1,0 +1,99 @@
+.flex{display: flex}
+.flex-1{flex:1}
+.col{flex-direction: column}
+.wrap{flex-wrap: wrap}
+.jcc{justify-content: center}
+.jcsb{justify-content: space-between}
+.jcsa{justify-content: space-around}
+.jcl{justify-content: flex-start}
+.jcr{justify-content: flex-end}
+.items-c{align-items: center}
+.items-l{align-items: flex-start}
+.items-r{align-items: flex-end}
+.items-b{align-items: baseline}
+.items-s{align-items: stretch}
+.gap-1{gap: 5px}
+.gap-2{gap: 10px}
+.gap-3{gap: 20px}
+.gap-4{gap: 50px}
+.p-1{padding: 5px}
+.p-2{padding: 10px}
+.p-3{padding: 20px}
+.p-4{padding: 50px}
+.m-1{margin: 5px}
+.m-2{margin: 10px}
+.m-3{margin: 20px}
+.m-4{margin: 50px}
+.opacity-0{opacity: 0}
+.opacity-1{opacity: 1}
+.txt-sm{font-size: 10px}
+.txt-md{font-size: 18px}
+.txt-lg{font-size: 24px}
+.txt-xlg{font-size: 48px}
+.txt-2xlg{font-size: 60px}
+.txt-light{font-weight: 300}
+.txt-normal{font-weight: 500}
+.txt-bold{font-weight: 600}
+.txt-bolder{font-weight: 900}
+.pointer{cursor: pointer}
+.txt-gold{color: #ffd700}
+.bg-gold{background: #ffd700}
+.bg-blue{background: #00eaff}
+.txt-blue{color: #00eaff}
+.bg-blue{background: hsl(185, 100%, 50%)}
+.bg-dark{
+  background: rgb(17,18,18);
+background: linear-gradient(27deg, rgba(17,18,18,1) 35%, rgba(50,68,70,1) 80%, rgba(48,110,116,1) 100%);
+}
+.min-h-500{min-height: 500px}
+.max-w-500{max-width:500px;width:100%;}
+.txt-dark{
+  background: rgb(17,18,18);
+  background: linear-gradient(27deg, rgba(17,18,18,1) 35%, rgba(50,68,70,1) 80%, rgba(48,110,116,1) 100%);
+color: transparent;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.txt-white{color: white}
+.w-full{width: 100vw}
+.h-full{height: 100vh}
+.w-100{width: 100%}
+.h-100{height: 100%}
+.z-1{z-index: 11}
+.z-2{z-index: 111}
+.z-3{z-index: 1111}
+.z-4{z-index: 11111}
+.poppins{font-family: "Poppins", sans-serif}
+.orbitron{font-family: "Orbitron", sans-serif}
+.ibm{font-family: "IBM Plex Sans", sans-serif}
+.inter{font-family: "Inter", sans-serif}
+.source{font-family: "Source Code Pro", monospace}
+.glass{backdrop-filter: blur(16px) saturate(180%);-webkit-backdrop-filter: blur(16px) saturate(180%);background-color: rgba(0, 0, 0, 0.205)}
+.round-sm{border-radius: 7px}
+.round-md{border-radius: 15px}
+.round-lg{border-radius: 30px}
+.round-full{border-radius: 50%}
+.border-blue{border: 1px solid #00eaff11}
+.border-b-blue{border-bottom: 1px solid #00eaff11}
+.border-gold{border: 1px solid #ffd90063}
+.border-b-gold{border-bottom: 1px solid #ffd70011}
+.href-none{text-decoration: none}
+.sticky{position: sticky}
+.top-0{top:0}
+.bottom-0{bottom:0}
+.left-0{left:0}
+.right-0{right:0}
+.relative{position:relative}
+.absolute{position: absolute}
+.fixed{position: fixed}
+.blue-shadow{box-shadow: 1px 1px 20px rgba(0, 234, 255, 0.7)}
+.gold-shadow{box-shadow: 1px 1px 20px rgb(255, 215, 0, 0.7)}
+.cover{object-fit: cover;background-size: cover;}
+@media (max-width: 480px) {
+  .txt-2xlg{font-size: 48px}
+}
+
+@media (max-width: 240px) {
+  .txt-2xlg{font-size: 24px}
+  .dshud{color:#00eaff3b}
+}

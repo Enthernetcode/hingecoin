@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spin - Hingecoin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+     integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" 
+rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+ <link rel="stylesheet" href="main.css">
+</head>
+<body class="w-full bg-dark flex col jcsb">
+  <div id="loadCont">
+<div class="loader bg-dark">
+<svg width="300" height="30" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" rx="10" ry="10" fill="#ccc" />
+  <rect id="progressFill" width="0%" height="100%" rx="10" ry="10" fill="#00eaff">
+    <animate attributeName="width" from="0%" to="100%" dur="1s" begin="0s" fill="freeze" />
+  </rect>
+  <text x="50%" y="50%" alignment-baseline="middle" text-anchor="middle" fill="#111" style="font-size:20px;">
+    Loading..
+  </text>
+</svg>
+
+</div>
+  </div>
+  <div id="top-nav" class="flex w-100 sticky top-0 z-2 border-b-blue items-c jcsb">
+    <div class="flex items-c p-3 gap-3">
+      <svg class="pointer" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z"/>
+      </svg>
+      <div class="txt-white poppins txt-md">Spin</div>
+    </div>
+    <div id="count" class="pointer">
+    </div>
+    <div class="btncont jcsb p-2 items-c gap-2 glass">
+      <div id="cancel-cart" class="poppins pointer border-blue txt-blue round-md p-2">Cancel</div>
+      <div id="play-cart" class="playbtn poppins pointer bg-blue round-md p-2">Play</div>
+    </div>
+    <div id="countItems" class="fixed w-100 z-2 opacity-0" style="top: 65px;">
+      
+    </div>
+  </div>
+
+  <div class="flex w-100 jcc items-c p-3 gap-2 txt-2xlg">
+    <span id="token" class="txt-white poppins">4000.00</span><span class="txt-gold poppins">HC</span>
+  </div>
+  <div id="displayart" class="flex w-100 p-3"></div>
+    <div id="container" class="flex jcsa items-c w-100 p-4">
+      <div class="wheelCont">
+        <img id="wheel" class="rot-pos-1-0" src="./assets/wheel/wheel.webp" alt="the wheel pics">
+        <img class="marker" src="./assets/wheel/marker.webp">
+        </div>
+        <div id="btn">Spin</div>
+    </div>
+   <div id="winDisplay"></div>
+<audio id="clickSound" src="./assets/audio/clickbtn.mp3" style="display: none;"></audio>
+<audio id="spinSound" src="./assets/audio/spin.mp3" loop style="display: none;"></audio>
+<audio id="winSound" src="./assets/audio/win.mp3" style="display: none;"></audio>
+<audio id="failSound" src="./assets/audio/fail.mp3" style="display: none;"></audio>
+<audio id="creekingSound" src="./assets/audio/creekingwheel.mp3" style="display: none;"></audio>
+<nav class="nav b-nav glass border-blue p-3 z-1">
+  <a href="gallery.html" class="href-none flex col gap-1 items-c txt-white pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-images" viewBox="0 0 16 16">
+      <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+      <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z"/>
+    </svg>
+    <div class="href-none poppins txt-white">Gallery</div>
+  </a>
+  <a href="farm.html" class="href-none flex col gap-1 items-c txt-white pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-minecart-loaded" viewBox="0 0 16 16">
+      <path d="M4 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2m0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4m8-1a1 1 0 1 1 0-2 1 1 0 0 1 0 2m0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4M.115 3.18A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 14 12H2a.5.5 0 0 1-.491-.408l-1.5-8a.5.5 0 0 1 .106-.411zm.987.82 1.313 7h11.17l1.313-7z"/>
+      <path fill-rule="evenodd" d="M6 1a2.498 2.498 0 0 1 4 0c.818 0 1.545.394 2 1 .67 0 1.552.57 2 1h-2c-.314 0-.611-.15-.8-.4-.274-.365-.71-.6-1.2-.6-.314 0-.611-.15-.8-.4a1.497 1.497 0 0 0-2.4 0c-.189.25-.486.4-.8.4-.507 0-.955.251-1.228.638q-.136.194-.308.362H3c.13-.147.401-.432.562-.545a1.6 1.6 0 0 0 .393-.393A2.5 2.5 0 0 1 6 1"/>
+    </svg>
+    <div class="href-none poppins txt-white">Farm</div>
+  </a>
+  <a href="task.html" class="href-none flex col gap-1 items-c txt-white pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-list-task" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z"/>
+      <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z"/>
+      <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5zM2 7h1v1H2zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm1 .5H2v1h1z"/>
+    </svg>
+    <div class="href-none poppins txt-white">Tasks</div>
+  </a>
+</nav>
+    <script src="app.js"></script>
+    <script>
+      const wheel = document.getElementById("wheel");
+  const btn = document.getElementById("btn");
+  const click = document.getElementById("clickSound");
+  const spin = document.getElementById("spinSound");
+ const creeking = document.getElementById("creekingSound");
+ const winSound = document.getElementById("winSound");
+  const failSound = document.getElementById("failSound");
+ const winDisplay = document.getElementById("winDisplay");
+ const images = [
+'assets/bg1.jpg',
+'assets/bg2.jpg',
+'assets/bg3.jpg',
+'assets/bg4.jpg',
+'assets/bg5.jpg',
+'assets/bg6.jpg',
+'assets/bg7.avif',
+'assets/bg8.jpg',
+'assets/bg9.avif',
+'assets/bg10.avif'
+ ];
+ let isClicked;
+ btn.className = "";
+ const me = JSON.parse(localStorage.getItem("hcuser"));
+ document.getElementById('token').innerText=(me.token).toLocaleString();
+
+ if(!sessionStorage.getItem('artcart')){
+        window.location.href='gallery.html';
+      }else{
+        const mykey = '4';
+      const arts = JSON.parse(sessionStorage.getItem('artcart'));
+      const displayArt = document.getElementById('displayart');
+     const artt = arts.map(art => `
+      <div class="art relative flex jcc items-c border-blue p-1" style="height:70px;width:50px;background:#332c0d">
+        <div class='absolute top-0 right-0 round-full txt-bold txt-white flex jcc items-c' style='width: 20px;height:20px;background:#332c0d'>${art.no}</div>
+        <img class="w-100 h-100 cover img" src="${art.img}" alt="${art.id}">
+        <div class="absolute w-100 h-100 flex jcc items-c">
+                <div class="val flex w-100 jcc txt-bolder poppins txt-gold " style="opacity:.7;">${(art.val).toLocaleString()}</div>
+            </div>
+      </div>
+    `).join("");
+    const artsCover = `<div class="w-100 flex  wrap jcc items-c p-1 gap-3">`;
+    const artsCoverClose = `</div>`;
+    displayArt.innerHTML= artsCover+artt+artsCoverClose;
+
+
+ function getRandomImage() {
+  const randomIndex = Math.floor(Math.random() * images.length);
+  return images[randomIndex]; 
+}
+
+function setBackgroundImage() {
+  const backgroundElement = document.getElementById("container");
+  const randomImagePath = getRandomImage();
+  backgroundElement.style.backgroundImage = `url(${randomImagePath})`;
+}
+
+setBackgroundImage();
+
+
+ document.addEventListener('click', function(event) {
+  if (event.target.closest('.winCard button')) {
+    removeWin();
+  }
+});
+
+function displayWin(num, arts) {
+ const selectedItem = arts.filter(a=> parseFloat(mykey) === a.no)[0];
+ const me = JSON.parse(localStorage.getItem("hcuser"));
+  const token = me.token;
+  const newToken = token + selectedItem.val;
+    const newMe = {
+      ...me,
+      token: newToken,
+    };
+selectedItem.val<0 ? failSound.play() : winSound.play();
+    const newMeString = JSON.stringify(newMe);
+    localStorage.setItem('hcuser', newMeString);
+ const mee = JSON.parse(localStorage.getItem("hcuser"));
+ document.getElementById('token').innerText=(mee.token).toLocaleString();
+  winDisplay.innerHTML = `<div class="winCardCont">
+    <div id="winCard" class="winCard gold-shadow">
+      <div class="avatarCont">
+        <img class="avatar" src="${selectedItem.img}">
+        <img class="winMarker" src="./assets/wheel/marker.webp">
+      </div>
+      <h1 class='txt-gold poppins'>${selectedItem.val<0? 'Oops!':'Great!'}</h1>
+      <p class='poppins txt-white' style='text-align: center'>${selectedItem.val<0? `${selectedItem.val} has been deducted from your hinge token`:`${selectedItem.val} has been added to your hinge token`}</p>
+      <button class='round-sm p-3 txt-bold border-gold txt-white' style='background:transparent'>Got it</button>
+    </div>
+  </div>
+`;
+
+}
+
+function removeWin() {
+  btn.className ="";
+ failSound.pause();
+  winSound.pause();
+  winDisplay.innerHTML = "";
+  sessionStorage.setItem('artcart', '')
+window.location.href='gallery.html';
+}
+
+ function getApiPostition () {
+  let position = mykey;
+     handleSpin(position)
+  }
+ function handleSpin (pos) {
+    const randomDuration = Math.floor(Math.random() * (10000 - 3000 + 1) + 3000);
+    wheel.className = "";
+    wheel.classList.add("rotating");
+    wheel.style.animationDuration = randomDuration + "ms";
+    setTimeout(function() {
+      spin.pause();
+      wheel.classList.remove("rotating");
+      const randomPosition = Math.floor(Math.random() * 3) + 1;
+      wheel.className = "rot-pos-"+randomDuration+"-1";
+      creeking.play();
+  
+function validPosSet(position){
+
+function finalPosition(num){
+wheel.className = "rot-pos-"+num+"-"+randomPosition;
+setTimeout(function(){
+displayWin(num, arts);
+isClicked = false;
+},6000)
+
+}
+
+      switch(position){
+        case "1" :
+         finalPosition(1)
+         break;
+        case "2" :
+         finalPosition(2)
+         break;
+        case "3" :
+         finalPosition(3)
+         break;
+        case "4" :
+         finalPosition(4)
+         break;
+         default:
+         wheel.className = "rot-pos-"+randomPosition+ "-0";
+         break;
+      }
+      }
+      setTimeout(function(){
+         validPosSet(pos)
+      },1000)
+    }, randomDuration);
+    
+}
+function handleBtnClicked(){
+isClicked = true;
+    btn.className = "spinbtn";
+    click.play();
+    spin.play();
+    getApiPostition()
+}
+  btn.addEventListener("click", function() {
+    !isClicked && handleBtnClicked()
+  });
+      }
+    </script>
+</body>
+</html>

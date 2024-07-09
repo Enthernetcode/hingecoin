@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Hingecoin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+     integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" 
+rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+ <link rel="stylesheet" href="main.css">
+</head>
+<body class="w-full bg-dark flex col jcsb">
+  <div id="loadCont">
+<div class="loader bg-dark">
+<svg width="300" height="30" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" rx="10" ry="10" fill="#ccc" />
+  <rect id="progressFill" width="0%" height="100%" rx="10" ry="10" fill="#00eaff">
+    <animate attributeName="width" from="0%" to="100%" dur="1s" begin="0s" fill="freeze" />
+  </rect>
+  <text x="50%" y="50%" alignment-baseline="middle" text-anchor="middle" fill="#111" style="font-size:20px;">
+    Loading..
+  </text>
+</svg>
+
+</div>
+  </div>
+  <div id="top-nav" class="flex w-100 sticky top-0 z-2 border-b-blue items-c jcsb">
+    <div class="flex items-c p-3 gap-3">
+      <svg class="pointer" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z"/>
+      </svg>
+      <div class="txt-white poppins txt-md">Gallery</div>
+    </div>
+    <div id="count" class="pointer">
+    </div>
+    <div class="btncont jcsb p-2 items-c gap-2 glass">
+      <div id="cancel-cart" class="poppins pointer border-blue txt-blue round-md p-2">Cancel</div>
+      <div id="play-cart" class="playbtn poppins pointer bg-blue round-md p-2">Play</div>
+    </div>
+    <div id="countItems" class="fixed w-100 z-2 opacity-0" style="top: 65px;">
+      
+    </div>
+  </div>
+  <div  class="flex w-100 jcsb items-c" style="padding: 5px 20px;">
+    <div class="flex jcl gap-1 items-c flex-1 ">
+      <div id="guage-cont" class="p-2 glass flex items-c gap-1 round-lg border-blue" style="height: 35px;">
+        <div class="spark-element"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-speedometer" viewBox="0 0 16 16">
+        <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2M3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.39.39 0 0 0-.029-.518z"/>
+        <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.95 11.95 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0"/>
+      </svg>
+      <div id="guage" class="txt-white txt-sm">000</div>
+    </div>
+      <div id="boost" class="p-2 glass flex items-c gap-1 txt-blue round-full jcc border-blue pointer" style="width: 35px;height: 35px;"><i class="fa fa-bolt"></i></div>
+    </div>
+    <div class="txt-bold poppins txt-white flex-1 flex jcr items-c" id="token">000</div>
+  </div>
+  <div id="gallery" class="flex col w-100 jcc items-c p-3 gap-2 txt-2xlg">
+  </div>
+<nav class="nav b-nav glass border-blue p-3 z-1">
+  <a href="gallery.html" class="href-none flex col gap-1 items-c txt-white pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-images" viewBox="0 0 16 16">
+      <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+      <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z"/>
+    </svg>
+    <div class="href-none poppins txt-white">Gallery</div>
+  </a>
+  <a href="farm.html" class="href-none flex col gap-1 items-c txt-white pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-minecart-loaded" viewBox="0 0 16 16">
+      <path d="M4 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2m0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4m8-1a1 1 0 1 1 0-2 1 1 0 0 1 0 2m0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4M.115 3.18A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 14 12H2a.5.5 0 0 1-.491-.408l-1.5-8a.5.5 0 0 1 .106-.411zm.987.82 1.313 7h11.17l1.313-7z"/>
+      <path fill-rule="evenodd" d="M6 1a2.498 2.498 0 0 1 4 0c.818 0 1.545.394 2 1 .67 0 1.552.57 2 1h-2c-.314 0-.611-.15-.8-.4-.274-.365-.71-.6-1.2-.6-.314 0-.611-.15-.8-.4a1.497 1.497 0 0 0-2.4 0c-.189.25-.486.4-.8.4-.507 0-.955.251-1.228.638q-.136.194-.308.362H3c.13-.147.401-.432.562-.545a1.6 1.6 0 0 0 .393-.393A2.5 2.5 0 0 1 6 1"/>
+    </svg>
+    <div class="href-none poppins txt-white">Farm</div>
+  </a>
+  <a href="task.html" class="href-none flex col gap-1 items-c txt-white pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-list-task" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z"/>
+      <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z"/>
+      <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5zM2 7h1v1H2zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm1 .5H2v1h1z"/>
+    </svg>
+    <div class="href-none poppins txt-white">Tasks</div>
+  </a>
+</nav>
+<div id="prompt"> </div>
+<div id="alert"> </div>
+    <script src="app.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+//declearing all my varaibles
+     const gallery = document.getElementById("gallery");
+     const promptCard = document.getElementById("prompt");
+     const alertCard = document.getElementById("alert");
+     const guagetxt = document.getElementById("guage");
+     const boostbtn = document.getElementById("boost");
+     let total = 0;
+     let count = 0;
+     let cart = [];
+     const arts = [
+    {
+      id: "g2g",
+      img: "./assets/avatars/avatar (2).jpeg",
+      val: 2000
+    },
+    {
+      id: "e5g",
+      img: "./assets/avatars/avatar (2).jpg",
+      val: 4000
+    },
+    {
+      id: "a6y",
+      img: "./assets/avatars/avatar (2).png",
+      val: 3000
+    },
+    {
+      id: "w7u",
+      img: "./assets/avatars/avatar (3).jpeg",
+      val: 2000
+    },
+    {
+      id: "o39",
+      img: "./assets/avatars/avatar (3).jpg",
+      val: 5000
+    },
+    {
+      id: "ws7",
+      img: "./assets/avatars/avatar (3).png",
+      val: -5000
+    },
+    {
+      id: "yw6",
+      img: "./assets/avatars/avatar (4).jpg",
+      val: 5000
+    },
+    {
+      id: "ci0",
+      img: "./assets/avatars/avatar (5).jpg",
+      val: 5000
+    },
+    {
+      id: "38h",
+      img: "./assets/avatars/avatar (6).jpg",
+      val: -2000
+    },
+    {
+      id: "36y",
+      img: "./assets/avatars/avatar (7).jpg",
+      val: -500
+    },
+    {
+      id: "a4a",
+      img: "./assets/avatars/avatar (8).jpg",
+      val: 500
+    },
+    {
+      id: "8wu",
+      img: "./assets/avatars/avatar (9).jpg",
+      val: -2000
+    },
+    {
+      id: "9wi",
+      img: "./assets/avatars/avatar (10).jpg",
+      val: 2000
+    },
+    {
+      id: "9id",
+      img: "./assets/avatars/avatar (11).jpg",
+      val: 1000
+    },
+    {
+      id: "9iw",
+      img: "./assets/avatars/avatar (12).jpg",
+      val: 1000
+    },
+    {
+      id: "83u",
+      img: "./assets/avatars/avatar (13).jpg",
+      val: -1000
+    },
+    {
+      id: "8ub",
+      img: "./assets/avatars/avatar (14).jpg",
+      val: -1000
+    },
+    {
+      id: "a5a",
+      img: "./assets/avatars/avatar (15).jpg",
+      val: -6000
+    },
+    {
+      id: "8ue",
+      img: "./assets/avatars/avatar (16).jpg",
+      val: -4000
+    },
+    {
+      id: "8uq",
+      img: "./assets/avatars/avatar (17).jpg",
+      val: -4000
+    },
+    {
+      id: "8u9",
+      img: "./assets/avatars/avatar (18).jpg",
+      val: 4000
+    },
+    {
+      id: "ya8",
+      img: "./assets/avatars/avatar (19).jpg",
+      val: 6000
+    },
+    {
+      id: "as2",
+      img: "./assets/avatars/avatar (20).jpg",
+      val: 6000
+    },
+    {
+      id: "9i9",
+      img: "./assets/avatars/avatar (21).jpg",
+      val: 7000
+    },
+    {
+      id: "4q3",
+      img: "./assets/avatars/avatar (22).jpg",
+      val: 7000
+    },
+    {
+      id: "j9s",
+      img: "./assets/avatars/avatar (23).jpg",
+      val: 3000
+    },
+    {
+      id: "js2",
+      img: "./assets/avatars/avatar (24).jpg",
+      val: 500
+    },
+    {
+      id: "z5z",
+      img: "./assets/avatars/avatar (25).jpg",
+      val: -500
+    },
+    {
+      id: "7ya",
+      img: "./assets/avatars/avatar (26).jpg",
+      val: -2000
+    },
+    {
+      id: "cm9",
+      img: "./assets/avatars/avatar (27).jpg",
+      val: 2000
+    },
+    {
+      id: "x9k",
+      img: "./assets/avatars/avatar (28).jpg",
+      val: 500
+    },
+    {
+      id: "mo1",
+      img: "./assets/avatars/avatar (29).jpg",
+      val: 1000
+    },
+    {
+      id: "xx2",
+      img: "./assets/avatars/avatar (30).jpg",
+      val: 10000
+    },
+    {
+      id: "z00",
+      img: "./assets/avatars/avatar (31).jpg",
+      val: 50000
+    },
+    {
+      id: "s0o",
+      img: "./assets/avatars/avatar (32).jpg",
+      val: 500
+    },
+    {
+      id: "4r4",
+      img: "./assets/avatars/avatar (33).jpg",
+      val: 3000
+    },
+    {
+      id: "qa3",
+      img: "./assets/avatars/avatar (34).jpg",
+      val: 4000
+    },
+    {
+      id: "v09",
+      img: "./assets/avatars/avatar (35).jpg",
+      val: -500
+    },
+    {
+      id: "09g",
+      img: "./assets/avatars/avatar (36).jpg",
+      val: 1000
+    },
+    {
+      id: "az1",
+      img: "./assets/avatars/avatar (37).jpg",
+      val: 2000
+    },
+    {
+      id: "9ok",
+      img: "./assets/avatars/avatar (38).jpg",
+      val: -500
+    },
+    {
+      id: "54d",
+      img: "./assets/avatars/avatar (39).jpg",
+      val: 1000
+    },
+    {
+      id: "d0g",
+      img: "./assets/avatars/avatar (40).jpg",
+      val: 1000
+    },
+    {
+      id: "yhe",
+      img: "./assets/avatars/avatar (41).jpg",
+      val: -1000
+    },
+    {
+      id: "u73",
+      img: "./assets/avatars/avatar (42).jpg",
+      val: 2000
+    },
+    {
+      id: "qq2",
+      img: "./assets/avatars/avatar (43).jpg",
+      val: -4000
+    },
+    {
+      id: "q44",
+      img: "./assets/avatars/avatar (44).jpg",
+      val: -3000
+    },
+    {
+      id: "k0o",
+      img: "./assets/avatars/avatar (45).jpg",
+      val: 1500
+    },
+    {
+      id: "c0k",
+      img: "./assets/avatars/avatar (46).jpg",
+      val: -1500
+    },
+    {
+      id: "9ij",
+      img: "./assets/avatars/avatar.jpeg",
+      val: 2000
+    },
+    {
+      id: "aa3",
+      img: "./assets/avatars/avatar.jpg",
+      val: -2000
+    },
+    {
+      id: "g2g",
+      img: "./assets/avatars/avatar.png",
+      val: 7000
+    },
+    
+  ];
+
+  const mee = JSON.parse(localStorage.getItem("hcuser"));
+  document.getElementById('token').innerHTML=`${(mee.token).toLocaleString()} <span class='txt-gold txt-bold poppins'>HC</span>`;
+  
+//function to display gauge
+const displayGuage = () => {
+const me = JSON.parse(localStorage.getItem("hcuser"));
+guagetxt.innerText = me.guage;
+};
+
+displayGuage();
+
+//function to display prompt
+const displayPrompt = (message,action) => {
+  const card = `<div class="body flex w-full h-full top-0 z-3 fixed jcc items-c p-3" style="background-color: #101c1d80">
+   <div class="flex col p-3 max-w-500 round-md glass gap-3 blue-shadow">
+   <div class="w-100 poppins txt-white" style="text-align: center">${message}</div> 
+   <div class="w-100 flex gap-3 jcsb items-c">
+   <div class="no flex-1 round-sm p-3 poppins flex jcc items-c border-blue txt-white pointer">Cancel</div>
+<div class="yes flex-1 round-sm p-3 poppins flex jcc items-c bg-blue pointer">Yes</div>
+   </div>
+   </div>
+   </div>`;
+   promptCard.innerHTML=card;
+   document.querySelector(".body").addEventListener("click", ()=>{
+    promptCard.innerHTML="";
+   });
+   document.querySelector(".no").addEventListener("click", ()=>{
+    promptCard.innerHTML="";
+   });
+   document.querySelector(".yes").addEventListener("click", action)
+};
+
+
+//function to boost guage
+const boostGuage = () => {
+  const me = JSON.parse(localStorage.getItem("hcuser"));
+  promptCard.innerHTML="";
+  if (me.token >= 10000) {
+    const newGuage = me.guage + 1000;
+    const newMe = {
+      ...me, 
+      token: me.token - 10000, 
+      guage: newGuage 
+    };
+
+    const newMeString = JSON.stringify(newMe);
+    localStorage.setItem('hcuser', newMeString); 
+
+    const container = document.querySelector(".spark-element");
+    container.classList.add("spark-animation");
+
+    setTimeout(() => {
+      container.classList.remove("spark-animation");
+    }, 2000);
+
+    displayGuage(); 
+  } else {
+   const card =`<div class="body flex w-full h-full top-0 z-3 fixed jcc items-c p-3" style="background-color: #101c1d80">
+   <div class="flex col p-3 max-w-500 round-md glass gap-3 blue-shadow">
+   <div class="w-100 poppins txt-white" style="text-align: center">Insufficient tokens to boost gauge!</div> 
+   <div class="w-100 flex gap-3 jcsb items-c">
+   <div class="gotit flex-1 round-sm p-3 poppins flex jcc items-c border-blue txt-white pointer">Got it</div>
+   </div>
+   </div>
+   </div>`;
+   alertCard.innerHTML=card;
+   document.querySelector(".body").addEventListener("click", ()=>{
+    alertCard.innerHTML="";
+   });
+   document.querySelector(".gotit").addEventListener("click", ()=>{
+    alertCard.innerHTML="";
+  });
+  }
+};
+
+//adding event listener to boost button
+   boostbtn.addEventListener("click", ()=>displayPrompt("You would be using 10,000HC to get +1000 guage boost", boostGuage));
+
+  const checkLimit = (total) => {
+    const me = JSON.parse(localStorage.getItem("hcuser"));
+    if(total > me.guage){
+   return false;
+    }else{
+      return true;
+    }
+  }
+  
+ const addToCart = (art) => {
+ const btnCont = document.querySelector('.btncont');
+ btnCont.style.display="flex";
+ let artval = parseFloat(art.querySelector(".val").innerText.replace(/,/g, ""));
+ let artid = art.querySelector(".id").innerText;
+ let artimg = art.querySelector(".img").src;
+    total += artval;
+   if(checkLimit(total)){
+    count++;
+    let artObj = {
+      no: count,
+      id: artid,
+      val: artval,
+      img: artimg
+    }
+    if(count > 4){
+        
+    }else{
+      if(count === 4){
+        document.getElementById('play-cart').classList.replace('playbtn','flex');
+      }
+      cart.push(artObj);
+       countEle = document.getElementById('count');
+       countItems = document.getElementById('countItems');
+      countEle.innerHTML=`<div class="countno txt-bolder bg-gold flex jcc items-c round-full" style="width: 30px;height: 30px;margin-right: 20px;">${count}</div>`;
+      const card = `<div class=" flex items-c
+       border-blue gap-4 p-2 pointer" style='background:#143033'>
+      <div class="txt-blue border-blue p-2 round-sm">
+        ${artObj.no}
+    </div>
+      <div class="flex col">
+        <div class="poppins txt-bold" style="color:#d4fbff">${artObj.id}</div>
+        <div class="poppins" style="font-size: 13px; color: #e4e4e4;">${artObj.val}</div>
+      </div>
+    </div>`;
+    countItems.innerHTML+=card;
+    countEle.querySelector('.countno').addEventListener('click', ()=>{
+      countItems.classList.toggle('opacity-0')
+    })
+    document.getElementById("cancel-cart")?.addEventListener('click',()=>{
+      cart=[];
+      total=0;
+      count=0;
+      countEle.innerHTML='';
+      countItems.innerHTML='';
+      btnCont.style.display='none';
+    })
+    }
+
+   }else{
+     total -= artval;
+    alertCard.innerHTML = `<div class="body flex w-full h-full top-0 z-3 fixed jcc items-c p-3" style="background-color: #101c1d80">
+   <div class="flex col p-3 max-w-500 round-md glass gap-3 blue-shadow">
+   <div class="w-100 poppins txt-white" style="text-align: center">Exceeded your guage limit! boost guage now</div> 
+   <div class="w-100 flex gap-3 jcsb items-c">
+   <div class="gotit flex-1 round-sm p-3 poppins flex jcc items-c border-blue txt-white pointer">Got it</div>
+   </div>
+   </div>
+   </div>`;
+   document.querySelector(".body").addEventListener("click", ()=>{
+    alertCard.innerHTML="";
+   });
+   document.querySelector(".gotit").addEventListener("click", ()=>{
+    alertCard.innerHTML="";
+  });
+   }
+ }
+
+ //display art works here 
+ const displayArts = () => {
+    const highestValArt = arts.reduce((highest, current) => {
+      return current.val > highest.val ? current : highest;
+    }, arts[0]);
+  
+    const highestValCard = `
+      <div class="w-100 flex jcc items-c p-1">
+        <div class="art max-w-500 relative flex jcc items-c gold-shadow p-1" style="height:200px;background:#332c0d">
+            <img class="img w-100 h-100 cover" src="${highestValArt.img}" alt="${highestValArt.id}">
+            <div class="absolute w-100 h-100 flex col">
+                <div class="id txt-sm p-1 txt-white flex jcc items-c txt-bolder" style="width:40px;background:#332c0d">${highestValArt.id}</div>
+                <div class="val flex w-100 jcc txt-bolder poppins txt-gold txt-2xlg" style="opacity:.5;">${(highestValArt.val).toLocaleString()}</div>
+            </div>
+        </div>
+      </div>
+    `;
+  
+    const remainingArts = arts.filter(art => art !== highestValArt);
+    const remainingCards = remainingArts.map(art => `
+      <div class="art relative flex jcc items-c blue-shadow p-1" style="height:200px;width:120px;background:#332c0d">
+        <img class="w-100 h-100 cover img" src="${art.img}" alt="${art.id}">
+        <div class="absolute w-100 h-100 flex col">
+                <div class="id txt-sm p-1 txt-white flex jcc items-c txt-bolder" style="width:40px;background:#332c0d">${art.id}</div>
+                <div class="val flex w-100 jcc txt-bolder poppins txt-blue txt-lg" style="opacity:.5;">${(art.val).toLocaleString()}</div>
+            </div>
+      </div>
+    `).join("");
+    const remainingArtsCover = `<div class="w-100 flex  wrap jcc items-c p-1 gap-3">`;
+    const remainingArtsCoverClose = `</div>`;
+  
+    const galleryContent = highestValCard + remainingArtsCover + remainingCards + remainingArtsCoverClose;
+  
+    gallery.innerHTML = galleryContent;
+
+    document.querySelectorAll(".art").forEach(art=>{
+      art.addEventListener("click", ()=> addToCart(art))
+    })
+  };
+  
+  displayArts();
+  document.getElementById('play-cart').addEventListener('click',()=>{
+    const newCart = JSON.stringify(cart);
+    sessionStorage.setItem('artcart', newCart);
+    window.location.href='spin.html';
+  })
+
+});
+  </script>
+</body>
+</html>
